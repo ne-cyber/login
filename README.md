@@ -11,6 +11,11 @@ app.get('/task', (req,res) => {\
     }\
 })\
 
+app.post('/task', (req,res) => {
+    if(login('POST', res, '/task', req.query, req.body)) {
+        res.render('main.ejs', {queryObj: req.query,  postObj: req.body})
+    }
+})
 ...
 login(...) returns true only if token is valid, and token will be valid if user&password is valid and token not expired.
 
