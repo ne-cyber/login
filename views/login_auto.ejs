@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    auto login
+    method: <%= method %> <br>
+    action: <%= url %> <br>
+    queryObj: <%= JSON.stringify(queryObj) %> 
+    <form method="<%= method %>" action="<%= url %>">
+        <!-- from query string -->
+        <% for(let k in queryObj) { %>
+            <% if (k === 'user' || k === 'password') { %>
+                <% continue %> 
+            <% } %> 
+            <input type="hidden" name="<%= k %>" value="<%= queryObj[k] %>">   
+        <% } %> 
+        <!-- end from query string -->
+
+        <!-- post string -->
+        <% for(let k in postObj) { %>
+            <% if (k === 'user' || k === 'password') { %>
+                <% continue %> 
+            <% } %> 
+            <input type="hidden" name="<%= k %>" value="<%= postObj[k] %>">   
+        <% } %> 
+        <!-- end post string -->
+
+        <!-- user & password -->
+        <!-- <input type="text" name="user" value="<%= (queryObj['user'] !== undefined) ? queryObj['user'] : '' %>"> <br>
+        <input type="password" name="password" value="<%= (queryObj['password'] !== undefined) ? queryObj['password'] : '' %>"> -->
+        <!-- end user & password -->
+        
+        <input type="submit" id="btn" value="Переход!">
+    </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('btn').click()
+        })
+    </script>
+</body>
+</html>
