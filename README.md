@@ -1,4 +1,4 @@
-# login
+# login & redirect in NodeJs express
 its just simple function that you call in your get/post method and its redirect with saving get/post params
 for NodeJS express \
 \
