@@ -32,7 +32,9 @@
         <% } %> 
         <!-- end post string -->
         <!-- user & password -->
+        <label for="user">user</label>
         <input type="text" name="user" value="<%= (queryObj['user'] !== undefined) ? queryObj['user'] : '' %>"> <br>
+        <label for="password">password</label>
         <input type="password" name="password" value="<%= (queryObj['password'] !== undefined) ? queryObj['password'] : '' %>">
         <!-- end user & password -->
         <input type="submit" value="Переход!">
